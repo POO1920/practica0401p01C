@@ -1,0 +1,14 @@
+
+language: cpp
+
+install:
+ - git remote add original https://github.com/POO1920/practica0401p01C.git
+ - git fetch original
+ - git checkout original/master .travis.yml
+ - git checkout original/master catch.hpp
+ - git checkout original/master Tests.cpp
+
+script:
+ - cmake -H. -Bbuild
+ - cmake --build build --target all -- -j 2
+ - ./build/P0401p01_tests
